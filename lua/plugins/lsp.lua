@@ -5,7 +5,5 @@ return {
     -- change a keymap
     -- disable a keymap
     keys[#keys + 1] = { "K", false }
-    -- add a keymap
-    keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
   end,
 }

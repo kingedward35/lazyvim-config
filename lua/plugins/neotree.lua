@@ -8,6 +8,15 @@ return {
       window = {
         position = "right",
         width = 43,
+        mappings = {
+          ["C-k"] = "prev_source",
+          ["C-j"] = "next_source",
+        },
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        },
       },
     })
   end,
