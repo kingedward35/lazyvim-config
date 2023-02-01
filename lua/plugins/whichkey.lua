@@ -119,6 +119,14 @@ return {
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
       },
+      n = {
+        name = "Neotest",
+        r = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run file" },
+        n = { "<cmd>lua require('neotest').run.run()<cr>", "Run nearest" },
+        o = { "<cmd>lua require('neotest').output.open({ enter = true })<cr> ", "Open output" },
+        t = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Toggle summary" },
+        l = { "<cmd>lua require('neotest').run.run_last()<cr>", "Run last test" },
+      },
     }
 
     local setup = {
