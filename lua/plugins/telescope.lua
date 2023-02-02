@@ -15,6 +15,8 @@ return {
   keys = {
     { "<leader>/", false },
     { "<leader>st", false },
+    { "<leader>b", false },
+    -- { "<leader>fb", false },
     -- add a keymap to browse plugin files
   },
   opts = {
@@ -134,4 +136,17 @@ return {
       ".gitignore",
     },
   },
+  -- {
+  --   "nvim-telescope/telescope-file-browser.nvim",
+  --   keys = {
+  --     {
+  --       "<leader>fb",
+  --       ":Telescope file_browser path=%:p:h=%:p:h<cr>",
+  --       desc = "File Browser",
+  --     },
+  --   },
+  --   config = function()
+  --     require("telescope").load_extension("file_browser")
+  --   end,
+  -- },
 }
