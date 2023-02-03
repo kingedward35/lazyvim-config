@@ -75,8 +75,9 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Misc
 vim.keymap.set("n", "<leader>o", "<cmd>Telescope oldfiles<cr>", opts)
+-- vim.keymap.set("n", "<leader>c", "<cmd>bdelete!<cr>", opts)
 -- keymap("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++quiet<cr>", opts)
 vim.keymap.set("n", "<leader>a", "<cmd>e ~/.config/nvim/init.lua <CR>", opts)
 vim.keymap.set("n", "gs", ":Lspsaga signature_help<cr>", opts)
 vim.keymap.set("n", "gh", ":Lspsaga lsp_finder<cr>", opts)

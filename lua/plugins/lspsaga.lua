@@ -1,7 +1,6 @@
 return {
   "glepnir/lspsaga.nvim",
   branch = "main",
-  -- keys = { "K", "<cmd>Lspsaga hover_doc<cr>", "Hover" },
   opts = {
     finder = {
       open = "o",
@@ -38,9 +37,9 @@ return {
     symbol_in_winbar = {
       -- in_custom = true,
       enable = true,
-      separator = " ",
+      separator = "  ",
       show_file = true,
-      -- click_support = false,
+      click_support = true,
     },
     ui = {
       -- currently only round theme

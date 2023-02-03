@@ -21,6 +21,7 @@ return {
   },
   opts = {
     defaults = {
+      file_ignore_patterns = {},
       prompt_prefix = " ",
       selection_caret = " ",
       -- path_display = { "smart" },
@@ -132,8 +133,7 @@ return {
       "--column",
       "--smart-case",
       "--hidden",
-      -- "--glob=!.git/",
-      ".gitignore",
+      "--glob=!.git/",
     },
   },
   -- {
