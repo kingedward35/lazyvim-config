@@ -73,7 +73,9 @@ return {
         -- white = '#d1d4cf',
         black = "#000000",
       },
-      kind = {},
+      kind = {
+        Folder = { "  ", "#f7bb3b" },
+      },
     },
   },
 }
