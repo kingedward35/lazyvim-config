@@ -1,14 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  cmd = "Neotree",
   keys = {
-    {
-      "<leader>f",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
-      end,
-      desc = "Explorer NeoTree (root dir)",
-    },
+    { "<leader>f", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
   },
   config = function()
     require("neo-tree").setup({

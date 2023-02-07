@@ -1,6 +1,8 @@
 return {
   "glepnir/lspsaga.nvim",
   branch = "main",
+  -- keys = { "K", "<cmd>Lspsaga hover_doc<cr>", "Hover" },
+  -- keys = { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Symbol Outline" },
   opts = {
     finder = {
       open = "o",
@@ -39,7 +41,7 @@ return {
       enable = true,
       separator = "  ",
       show_file = true,
-      click_support = true,
+      click_support = false,
     },
     ui = {
       -- currently only round theme
@@ -61,7 +63,7 @@ return {
         --float window normal background color
         normal_bg = "#000000",
         --title background color
-        -- title_bg = '#afd700',
+        -- title_bg = "#afd700",
         red = "#e95678",
         magenta = "#b33076",
         orange = "#FF8700",
