@@ -2,8 +2,71 @@ return {
   "neovim/nvim-lspconfig",
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    -- local nvim_lsp = require("lspconfig")
+    --
+    -- local on_attach = function(client, bufnr)
+    --   if client.name == "tsserver" then
+    --     client.server_capabilities.document_formatting = false
+    --   end
+    --
+    --   if client.name == "sumneko_lua" then
+    --     client.server_capabilities.document_formatting = false
+    --   end
+    --
+    --   if client.name == "rust_analyzer" then
+    --     -- print("turned on codelens")
+    --     -- vim.lsp.codelens.refresh()
+    --   end
+    -- end
+    --
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- local opts = {
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    --   cmd = {
+    --     "rustup",
+    --     "run",
+    --     "stable",
+    --   },
+    --   tools = {
+    --     autoSetHints = true,
+    --     hover_with_actions = true,
+    --     inlay_hints = {
+    --       show_parameter_hints = true,
+    --       parameter_hints_prefix = "",
+    --       other_hints_prefix = "",
+    --     },
+    --   },
+    --
+    --   server = {
+    --     settings = {
+    --       ["rust-analyzer"] = {
+    --         checkOnSave = {
+    --           command = "clippy",
+    --         },
+    --       },
+    --     },
+    --   },
+    -- }
+    --
+    -- nvim_lsp.rust_analyzer.setup(opts)
     -- change a keymap
     -- disable a keymap
     keys[#keys + 1] = { "K", false }
   end,
+  -- opts = {
+  --   servers = {
+  --     rust_analyzer = {
+  --       settings = {
+  --         ["rust-analyzer"] = {
+  --           cargo = { allFeatures = true },
+  --           checkOnSave = {
+  --             command = "clippy",
+  --             extraArgs = { "--no-deps" },
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
