@@ -21,7 +21,7 @@ return {
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Buffers",
       },
-      ["f"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
+      -- ["f"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
       ["fb"] = { "<cmd>Telescope file_browser<cr>", "File Browser" },
       ["w"] = { "<cmd>w!<CR>", "Save" },
       ["q"] = { "<cmd>q!<CR>", "Quit" },
