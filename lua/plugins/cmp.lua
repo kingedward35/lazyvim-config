@@ -39,6 +39,13 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
+  cmp_sources = {
+    nvim_lsp = "✨",
+    luasnip = "🚀",
+    buffer = "📝",
+    path = "📁",
+    cmdline = "💻",
+  },
 }
 
 return {
@@ -97,14 +104,19 @@ return {
         fields = { "abbr", "kind", "menu" },
         format = function(entry, vim_item)
           -- Kind icons
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-          vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-          })[entry.source.name]
+          -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+          -- -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+          -- vim_item.menu = ({
+          --   nvim_lsp = "[LSP]",
+          --   luasnip = "[Snippet]",
+          --   buffer = "[Buffer]",
+          --   path = "[Path]",
+          -- })[entry.source.name]
+          -- return vim_item
+          local kind = string.lower(vim_item.kind)
+          vim_item.kind = kind_icons[vim_item.kind] or "?"
+          vim_item.abbr = vim_item.abbr:match("[^(]+")
+          vim_item.menu = (kind_icons.cmp_sources[entry.source.name] or "") .. kind
           return vim_item
         end,
       },
