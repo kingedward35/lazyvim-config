@@ -1,8 +1,12 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   keys = {
-    { "<leader>f", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    -- { "<leader>f", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
+    { "<leader>F", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
   },
+  -- keys = {
+  --   { "<leader>f", "<cmd>Neotree toggle<cr>", desc = "NeoTree Toggle" },
+  -- },
   config = function()
     require("neo-tree").setup({
       window = {
