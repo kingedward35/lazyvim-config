@@ -13,6 +13,9 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
+local cmp_window = require("cmp.config.window")
+local cmp_mapping = require("cmp.config.mapping")
+
 local kind_icons = {
   Text = "",
   Method = "m",
@@ -101,7 +104,9 @@ return {
         }),
       },
       formatting = {
-        fields = { "abbr", "kind", "menu" },
+        -- fields = { "abbr", "kind", "menu" },
+        fields = { "kind", "abbr", "menu" },
+        kind_icons = kind_icons,
         format = function(entry, vim_item)
           -- Kind icons
           -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
@@ -131,14 +136,20 @@ return {
         select = false,
       },
       window = {
-        documentation = {
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        },
+        completion = cmp_window.bordered(),
+        documentation = cmp_window.bordered(),
       },
       experimental = {
         ghost_text = true,
         native_menu = false,
       },
+      duplicates = {
+        buffer = 1,
+        path = 1,
+        nvim_lsp = 0,
+        luasnip = 1,
+      },
+      duplicates_default = 0,
     },
   },
   {
