@@ -46,7 +46,7 @@ return {
           require("lazyvim.util").on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "rust_analyzer" then
-              vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
+              vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++quiet<cr>", { buffer = buffer })
             end
           end)
           local mason_registry = require("mason-registry")
@@ -66,7 +66,7 @@ return {
                 border = "none",
               },
               inlay_hints = {
-                auto = false,
+                auto = true,
                 show_parameter_hints = true,
               },
             },
