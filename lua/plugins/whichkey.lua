@@ -25,7 +25,7 @@ return {
       ["fb"] = { "<cmd>Telescope file_browser<cr>", "File Browser" },
       ["w"] = { "<cmd>w!<CR>", "Save" },
       ["q"] = { "<cmd>q!<CR>", "Quit" },
-      -- ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
+      ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
       -- ["r"] = { "<cmd>lua require('navigator.rename').rename()<cr>", "Rename"},
