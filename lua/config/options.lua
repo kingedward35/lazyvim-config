@@ -42,7 +42,7 @@ local options = {
 }
 -- Treesitter folding
 vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   options.splitkeep = "screen"
