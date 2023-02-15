@@ -110,6 +110,15 @@ return {
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
       },
+
+      n = {
+        name = "Neotest",
+        r = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run file" },
+        n = { "<cmd>lua require('neotest').run.run()<cr>", "Run nearest" },
+        o = { "<cmd>lua require('neotest').output.open({ enter = true })<cr> ", "Open output" },
+        t = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Toggle summary" },
+        l = { "<cmd>lua require('neotest').run.run_last()<cr>", "Run last test" },
+      },
       t = {
         name = "Terminal",
         n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
