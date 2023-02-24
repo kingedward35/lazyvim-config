@@ -195,15 +195,15 @@ return {
                 end
               end
             end,
-            function()
-              local left_sep = "%#sessionname#" .. " "
-              local status, result = pcall(require("auto-session-library").current_session_name)
-              local session_name = "no session"
-              if status then
-                session_name = result
-              end
-              return left_sep .. "%#sessionname#" .. " " .. session_name .. " "
-            end,
+            -- function()
+            --   local left_sep = "%#sessionname#" .. " "
+            --   local status, result = pcall(require("auto-session-library").current_session_name)
+            --   local session_name = "no session"
+            --   if status then
+            --     session_name = result
+            --   end
+            --   return left_sep .. "%#sessionname#" .. " " .. session_name .. " "
+            -- end,
           },
           lualine_z = {
             function()
@@ -228,5 +228,5 @@ return {
       }
     end,
   },
-  { "rmagatti/auto-session" },
+  -- { "rmagatti/auto-session" },
 }

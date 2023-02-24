@@ -41,7 +41,7 @@ return {
       enable = true,
       separator = "  ",
       show_file = true,
-      click_support = false,
+      click_support = true,
     },
     ui = {
       -- currently only round theme
