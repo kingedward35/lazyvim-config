@@ -26,7 +26,9 @@ return {
           jestConfigFile = "jest.config.js",
           env = { CI = true },
           cwd = function(path)
+            -- return vim.loop.cwd()
             return utils.get_root()
+            -- return vim.fn.getcwd()
           end,
         }),
       },

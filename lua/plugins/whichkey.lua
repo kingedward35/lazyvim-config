@@ -67,9 +67,7 @@ return {
 
       l = {
         name = "LSP",
-        -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         c = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
-        -- c = { "<cmd>lua require('navigator.codeAction').code_action()<cr>", "Code Action" },
         d = {
           "<cmd>Telescope lsp_document_diagnostics<cr>",
           "Document Diagnostics",
@@ -110,7 +108,6 @@ return {
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
       },
-
       n = {
         name = "Neotest",
         r = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run file" },
@@ -128,6 +125,12 @@ return {
         t = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+      },
+      j = {
+        name = "Package Json",
+        t = { "<cmd>lua require('package-info').toggle()<cr>", "Toggle" },
+        d = { "<cmd>lua require('package-info').delete()<cr>", "Delete" },
+        u = { "<cmd>lua require('package-info').update()<cr>", "Update" },
       },
     }
 

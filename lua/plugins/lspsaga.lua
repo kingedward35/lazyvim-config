@@ -37,11 +37,12 @@ return {
       whole_project = true,
     },
     symbol_in_winbar = {
-      -- in_custom = true,
+      color_mode = true,
       enable = true,
       separator = "  ",
       show_file = true,
       click_support = true,
+      respect_root = false,
     },
     ui = {
       -- currently only round theme
@@ -58,7 +59,6 @@ return {
       diagnostic = "🐞",
       incoming = " ",
       outgoing = " ",
-      -- diagnostic_header = { " ", " ", " ", "ﴞ " },
       colors = {
         --float window normal background color
         normal_bg = "#000000",
@@ -72,11 +72,12 @@ return {
         cyan = "#36d0e0",
         blue = "#61afef",
         purple = "#CBA6F7",
-        -- white = '#d1d4cf',
+        white = "#d1d4cf",
         black = "#000000",
       },
       kind = {
-        Folder = { "  ", "#f7bb3b" },
+        -- Folder = { "  ", bg = "#f7bb3b" },
+        Folder = { "  ", "@property" },
       },
     },
   },

@@ -38,7 +38,7 @@ local options = {
   wrap = false, -- display lines as one long line
   scrolloff = 8, -- is one of my fav
   sidescrolloff = 8,
-  guifont = "Iosevka SS14:h17", -- the font used in graphical neovim applications
+  guifont = "Iosevka Nerd Font:h18:b", -- the font used in graphical neovim applications
 }
 -- Treesitter folding
 vim.wo.foldmethod = "expr"
