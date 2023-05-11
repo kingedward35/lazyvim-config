@@ -140,7 +140,7 @@ return {
         documentation = cmp_window.bordered(),
       },
       experimental = {
-        ghost_text = true,
+        -- ghost_text = true,
         native_menu = false,
       },
       duplicates = {
