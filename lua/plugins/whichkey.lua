@@ -76,7 +76,7 @@ return {
           "<cmd>Telescope lsp_workspace_diagnostics<cr>",
           "Workspace Diagnostics",
         },
-        f = { "<cmd>lua vim.lsp.buf.format({ timeout = 2000 })<cr>", "Format" },
+        f = { "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<cr>", "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
         j = {
