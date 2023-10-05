@@ -23,7 +23,7 @@ return {
           ignore_file_types = { "python", "vim", "lua" },
         }),
         require("neotest-jest")({
-          jestCommand = "npm test --",
+          jestCommand = "npx jest",
           jestConfigFile = "jest.config.js",
           env = { CI = true },
           cwd = function(path)
