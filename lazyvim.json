@@ -1,5 +1,7 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.tabnine",
+    "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lsp.none-ls"
   ],
   "news": {
