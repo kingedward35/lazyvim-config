@@ -20,6 +20,7 @@ return {
           ["C-j"] = "next_source",
         },
       },
+      popup_border_style = "rounded",
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
