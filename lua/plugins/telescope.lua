@@ -14,12 +14,20 @@ return {
       telescope.load_extension("file_browser")
     end,
     dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
-    keys = {
-      { "<leader>/", false },
-      { "<leader>st", false },
-      { "<leader>fb", false },
-      -- add a keymap to browse plugin files
-    },
+    keys = function()
+      return {
+        { "<leader>/", false },
+        { "<leader>st", false },
+        { "<leader>fb", false },
+        { "<leader>,", false },
+        {
+          "<leader>b",
+          "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+          desc = "Switch Buffer",
+        },
+        -- add a keymap to browse plugin files
+      }
+    end,
     opts = {
       defaults = {
         -- file_ignore_patterns = {},
