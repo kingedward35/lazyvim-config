@@ -28,6 +28,9 @@ return {
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
+        autotag = {
+          enable_close_on_slash = false,
+        },
         ensure_installed = { "vim", "lua" },
         highlight = {
           enable = true,
