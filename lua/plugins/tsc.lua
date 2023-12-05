@@ -6,11 +6,16 @@ return {
       auto_open_qflist = false,
       auto_close_qflist = false,
       auto_focus_qflist = false,
-      auto_start_watch_mode = true,
-      bin_path = utils.find_tsc_bin(),
+      auto_start_watch_mode = false,
+      -- bin_path = utils.find_tsc_bin(),
+      bin_path = "/usr/local/lib/node_modules/typescript/bin/tsc",
       enable_progress_notifications = true,
       flags = {
         noEmit = true,
+        -- project = false,
+        -- project = function()
+        --   return vim.fn.findfile("tsconfig.json")
+        -- end,
         project = function()
           return utils.find_nearest_tsconfig()
         end,
