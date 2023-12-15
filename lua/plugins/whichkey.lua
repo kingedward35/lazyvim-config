@@ -31,8 +31,9 @@ return {
       },
       -- ["st"] = { "<cmd>Telescope live_grep <cr>", "Find Text" },
       ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
-      x = {
+      k = {
         name = "ChatGPT",
+        mode = { "n", "v" },
         c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
         e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction" },
         g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction" },
