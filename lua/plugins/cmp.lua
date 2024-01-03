@@ -50,10 +50,12 @@ local kind_icons = {
     buffer = "📝",
     path = "📁",
     cmdline = "💻",
+    -- emoji = "😀",
   },
 }
 
 return {
+  { "hrsh7th/cmp-emoji" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -163,6 +165,8 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
+          { name = "emoji" },
+          { name = "cmp_tabnine" },
         },
         confirm_opts = {
           behavior = cmp.ConfirmBehavior.Replace,
