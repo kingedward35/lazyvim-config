@@ -1,5 +1,6 @@
 return {
   "HiPhish/rainbow-delimiters.nvim",
+  lazy = true,
   config = function()
     local rainbow_delimiters = require("rainbow-delimiters")
 
@@ -26,6 +27,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    event = { "LazyFile", "VeryLazy" },
     config = function()
       require("nvim-treesitter.configs").setup({
         autotag = {
@@ -45,6 +47,7 @@ return {
     end,
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
+      lazy = true,
     },
   },
 }

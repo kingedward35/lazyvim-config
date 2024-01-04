@@ -1,5 +1,6 @@
 return {
   "axelvc/template-string.nvim",
+  lazy = true,
   config = function()
     require("template-string").setup({
       filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "python" }, -- filetypes where the plugin is active

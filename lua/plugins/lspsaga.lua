@@ -1,5 +1,6 @@
 return {
   "glepnir/lspsaga.nvim",
+  event = "LspAttach",
   branch = "main",
   -- keys = { "K", "<cmd>Lspsaga hover_doc<cr>", "Hover" },
   -- keys = { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Symbol Outline" },

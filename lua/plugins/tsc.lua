@@ -1,5 +1,6 @@
 return {
   "dmmulroy/tsc.nvim",
+  event = "VeryLazy",
   config = function()
     local utils = require("tsc.utils")
     require("tsc").setup({

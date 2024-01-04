@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = "LazyFile",
     init = function()
       -- disable lsp watcher. Too slow on linux
       local ok, wf = pcall(require, "vim.lsp._watchfiles")
@@ -177,6 +178,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    event = "LazyFile",
     ---@class PluginLspOpts
     opts = {
       servers = { eslint = {} },
@@ -248,7 +250,7 @@ return {
     --   },
     -- },
   },
-  { import = "plugins.extras.lang.rust" },
+  -- { import = "plugins.extras.lang.rust" },
   { import = "plugins.extras.lang.js-ts" },
   {
     "atusy/tsnode-marker.nvim",

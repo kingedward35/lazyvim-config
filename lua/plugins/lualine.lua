@@ -36,6 +36,7 @@ local modes = {
 return {
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     opts = function()
       local api = vim.api
       api.nvim_command("hi StatusDefault " .. set_colors(colors.orange, colors.cyan))
