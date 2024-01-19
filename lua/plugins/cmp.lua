@@ -50,7 +50,7 @@ local kind_icons = {
     buffer = "📝",
     path = "📁",
     cmdline = "💻",
-    -- emoji = "😀",
+    emoji = "😀",
   },
 }
 
@@ -60,22 +60,22 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      {
-        "tzachar/cmp-tabnine",
-        build = {
-          Util.is_win() and "pwsh -noni .\\install.ps1" or "./install.sh",
-          ":CmpTabnineHub",
-        },
-        dependencies = "hrsh7th/nvim-cmp",
-        opts = {
-          max_lines = 1000,
-          max_num_results = 3,
-          sort = true,
-        },
-        config = function(_, opts)
-          require("cmp_tabnine.config"):setup(opts)
-        end,
-      },
+      -- {
+      -- "tzachar/cmp-tabnine",
+      -- build = {
+      --   Util.is_win() and "pwsh -noni .\\install.ps1" or "./install.sh",
+      --   ":CmpTabnineHub",
+      -- },
+      -- dependencies = "hrsh7th/nvim-cmp",
+      --   opts = {
+      --     max_lines = 1000,
+      --     max_num_results = 3,
+      --     sort = true,
+      --   },
+      --   config = function(_, opts)
+      --     require("cmp_tabnine.config"):setup(opts)
+      --   end,
+      -- },
     },
     opts = function(_, opts)
       table.insert(opts.sources, 1, {
@@ -167,7 +167,7 @@ return {
           { name = "buffer" },
           { name = "path" },
           { name = "emoji" },
-          { name = "cmp_tabnine" },
+          -- { name = "cmp_tabnine" },
         },
         confirm_opts = {
           behavior = cmp.ConfirmBehavior.Replace,

@@ -8,6 +8,7 @@ local actions = require("telescope.actions")
 return {
   {
     "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
     config = function(_, opts)
       telescope.setup(opts)
       telescope.load_extension("fzf")
@@ -96,6 +97,24 @@ return {
         -- find_files = {
         -- 	find_command = { "--hidden", "--smart-case" },
         -- },
+        buffers = {
+          -- path_display = { "truncate" },
+          path_display = { "smart" },
+          theme = "dropdown",
+          previewer = false,
+          initial_mode = "insert",
+          layout_config = {
+            width = 0.65,
+          },
+          mappings = {
+            i = {
+              ["<C-d>"] = actions.delete_buffer,
+            },
+            n = {
+              ["dd"] = actions.delete_buffer,
+            },
+          },
+        },
         git_files = {
           hidden = true,
         },

@@ -117,6 +117,13 @@ return {
                   -- "--log-level=trace",
                 },
               },
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {
+                  "vim",
+                  "require",
+                },
+              },
               hint = {
                 enable = true,
                 setType = false,

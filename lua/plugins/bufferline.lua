@@ -1,7 +1,7 @@
 return {
   {
     "akinsho/bufferline.nvim",
-    -- enabled = false,
+    enabled = false,
     event = "VeryLazy",
     config = function()
       local status_ok, bufferline = pcall(require, "bufferline")

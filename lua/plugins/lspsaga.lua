@@ -43,7 +43,8 @@ return {
       separator = "  ",
       show_file = true,
       click_support = true,
-      respect_root = false,
+      respect_root = true,
+      folder_level = 0,
     },
     ui = {
       -- currently only round theme
