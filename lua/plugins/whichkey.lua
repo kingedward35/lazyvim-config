@@ -64,17 +64,23 @@ return {
           "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
           "Undo Stage Hunk",
         },
+        w = {
+          name = "Worktree",
+          c = { "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", "Create Worktree" },
+          s = { "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", "Switch Worktree" },
+        },
         o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
         d = {
-          "<cmd>Gitsigns diffthis HEAD<cr>",
-          "Diff",
+          name = "Diff",
+          c = { "<cmd>DiffviewClose<cr>", "Close Diff" },
+          h = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff HEAD" },
+          o = { "<cmd>DiffviewOpen<cr>", "Open Diff" },
+          t = { "<cmd>DiffviewToggleFiles<cr>", "Toggle Files" },
+          f = { "<cmd>DiffviewFocusFiles<cr>", "Focus Files" },
         },
-        ["do"] = { "<cmd>DiffviewOpen<cr>", "Open Diff" },
-        ["dc"] = { "<cmd>DiffviewClose<cr>", "Close Diff" },
-        ["df"] = { "<cmd>DiffviewFocusFiles<cr>", "Focus Files" },
-        ["dt"] = { "<cmd>DiffviewToggleFiles<cr>", "Toggle Files" },
+        t = { "<cmd>GitBlameToggle<cr>", "Toggle Blame" },
       },
 
       l = {
@@ -119,6 +125,8 @@ return {
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
+        f = { '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', "Search current file" },
+        S = { '<cmd>lua require("spectre").toggle()<CR>', "Search all files" },
       },
       n = {
         name = "Neotest",

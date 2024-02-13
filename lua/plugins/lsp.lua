@@ -117,13 +117,6 @@ return {
                   -- "--log-level=trace",
                 },
               },
-              diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {
-                  "vim",
-                  "require",
-                },
-              },
               hint = {
                 enable = true,
                 setType = false,
@@ -139,6 +132,11 @@ return {
                 castNumberToInteger = true,
               },
               diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {
+                  "vim",
+                  "require",
+                },
                 disable = { "incomplete-signature-doc", "trailing-space" },
                 -- enable = false,
                 groupSeverity = {

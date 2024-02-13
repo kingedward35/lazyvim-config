@@ -143,6 +143,14 @@ return {
                 return ""
               end,
             },
+            {
+              'vim.fn["codeium#GetStatusString"]()',
+              fmt = function(str)
+                return "" .. "  Suggestions " .. str:lower():match("^%s*(.-)%s*$")
+                -- return "" .. "  Suggestions " .. str:match("^%s*(.-)%s*$")
+              end,
+              color = { fg = "#58f5ab" },
+            },
           },
           lualine_x = {},
           lualine_y = {

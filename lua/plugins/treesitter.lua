@@ -1,29 +1,52 @@
 return {
-  "HiPhish/rainbow-delimiters.nvim",
-  lazy = true,
-  config = function()
-    local rainbow_delimiters = require("rainbow-delimiters")
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "BufEnter",
+    config = function()
+      -- require("rainbow-delimiters.setup").setup({
+      --   strategy = {
+      --     [""] = rainbow_delimiters.strategy["global"],
+      --     vim = rainbow_delimiters.strategy["local"],
+      --   },
+      --   query = {
+      --     [""] = "rainbow-delimiters",
+      --     lua = "rainbow-blocks",
+      --   },
+      --   highlight = {
+      --     "RainbowDelimiterRed",
+      --     "RainbowDelimiterYellow",
+      --     "RainbowDelimiterBlue",
+      --     "RainbowDelimiterOrange",
+      --     "RainbowDelimiterGreen",
+      --     "RainbowDelimiterViolet",
+      --     "RainbowDelimiterCyan",
+      --   },
+      -- })
+      local rainbow_delimiters = require("rainbow-delimiters")
 
-    vim.g.rainbow_delimiters = {
-      strategy = {
-        [""] = rainbow_delimiters.strategy["global"],
-        vim = rainbow_delimiters.strategy["local"],
-      },
-      query = {
-        [""] = "rainbow-delimiters",
-        lua = "rainbow-blocks",
-      },
-      highlight = {
-        "RainbowDelimiterRed",
-        "RainbowDelimiterYellow",
-        "RainbowDelimiterBlue",
-        "RainbowDelimiterOrange",
-        "RainbowDelimiterGreen",
-        "RainbowDelimiterViolet",
-        "RainbowDelimiterCyan",
-      },
-    }
-  end,
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          vim = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+          tsx = "rainbow-parens",
+          javascript = "rainbow-delimiters-react",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -37,9 +60,15 @@ return {
         highlight = {
           enable = true,
         },
+        indent = { enable = true, disable = { "yaml", "python", "html" } },
         context_commentstring = {
           enable = true,
           enable_autocmd = false,
+        },
+        rainbow = {
+          enable = true,
+          query = "rainbow-parens",
+          -- disable = { "jsx", "html" },
         },
       })
 

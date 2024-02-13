@@ -8,11 +8,13 @@ local actions = require("telescope.actions")
 return {
   {
     "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
+    -- cmd = "Telescope",
+    event = "VeryLazy",
     config = function(_, opts)
       telescope.setup(opts)
       telescope.load_extension("fzf")
       telescope.load_extension("file_browser")
+      telescope.load_extension("git_worktree")
     end,
     dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
     keys = function()

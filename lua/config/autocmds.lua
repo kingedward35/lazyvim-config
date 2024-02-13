@@ -31,6 +31,10 @@ vim.cmd([[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+  augroup cdpwd
+      autocmd!
+      autocmd VimEnter * cd $PWD
+  augroup END
 ]])
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -50,6 +54,7 @@ vim.api.nvim_create_autocmd("User", {
     end)
   end,
 })
+
 -- Autoformat
 -- augroup _lsp
 --   autocmd!
