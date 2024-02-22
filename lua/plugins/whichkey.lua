@@ -32,6 +32,10 @@ return {
       },
       -- ["st"] = { "<cmd>Telescope live_grep <cr>", "Find Text" },
       ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+      C = {
+        name = "Codeium",
+        t = { "<cmd>Codeium Toggle<cr>", "Toggle Codeium" },
+      },
       k = {
         name = "ChatGPT",
         mode = { "n", "v" },

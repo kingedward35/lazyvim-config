@@ -48,7 +48,8 @@ return {
       },
       window = {
         position = "right",
-        width = 43,
+        -- width = 43,
+        width = 50,
         mappings = {
           ["C-k"] = "prev_source",
           ["C-j"] = "next_source",
