@@ -2,14 +2,6 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
   lazy = true,
-  keys = {
-    -- { "<leader>f", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
-    -- { "<leader>F", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
-    { "<leader>f", "<cmd>Neotree toggle<cr>", desc = "NeoTree Toggle" },
-  },
-  -- keys = {
-  --   { "<leader>f", "<cmd>Neotree toggle<cr>", desc = "NeoTree Toggle" },
-  -- },
   config = function()
     local banned_messages =
       { "[Neo-tree INFO] No items, skipping git ignored/status lookups", "No information available" }

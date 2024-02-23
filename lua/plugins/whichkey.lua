@@ -32,6 +32,7 @@ return {
       },
       -- ["st"] = { "<cmd>Telescope live_grep <cr>", "Find Text" },
       ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+      ["f"] = { "za", "Fold" },
       C = {
         name = "Codeium",
         t = { "<cmd>Codeium Toggle<cr>", "Toggle Codeium" },
