@@ -4,6 +4,8 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local harpoon = require("harpoon")
+harpoon:setup({})
 
 return {
   {
@@ -15,8 +17,12 @@ return {
       telescope.load_extension("fzf")
       telescope.load_extension("file_browser")
       telescope.load_extension("git_worktree")
+      telescope.load_extension("ui-select")
     end,
-    dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+    },
     keys = function()
       return {
         { "<leader>/", false },
@@ -152,6 +158,9 @@ return {
         file_browser = {
           hidden = true,
           respect_gitignore = true,
+        },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown(),
         },
       },
       vimgrep_arguments = {

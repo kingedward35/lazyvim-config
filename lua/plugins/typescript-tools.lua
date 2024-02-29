@@ -13,5 +13,15 @@ return {
         includeInlayVariableTypeHints = true,
       },
     },
+    handlers = {
+      -- because I don't want to format on save via typescript-tools
+      -- prefer other tools over typescript formatting
+      ["textDocument/formatting"] = true,
+      ["textDocument/rangeFormatting"] = true,
+      ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+        require("ts-error-translator").translate_diagnostics(err, result, ctx, config)
+        vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+      end,
+    },
   },
 }

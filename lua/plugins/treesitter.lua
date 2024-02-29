@@ -72,11 +72,18 @@ return {
         },
       })
 
+      require("template-string").setup({})
       require("ts_context_commentstring").setup({})
     end,
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      lazy = true,
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        lazy = true,
+      },
+      {
+        "axelvc/template-string.nvim",
+        lazy = true,
+      },
     },
   },
 }

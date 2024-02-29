@@ -4,6 +4,20 @@ return {
     event = "LazyFile",
     init = function()
       -- disable lsp watcher. Too slow on linux
+      -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function()
+      --   local border = {
+      --     { "🭽", "FloatBorder" },
+      --     { "▔", "FloatBorder" },
+      --     { "🭾", "FloatBorder" },
+      --     { "▕", "FloatBorder" },
+      --     { "🭿", "FloatBorder" },
+      --     { "▁", "FloatBorder" },
+      --     { "🭼", "FloatBorder" },
+      --     { "▏", "FloatBorder" },
+      --   }
+      --   return { border = border }
+      -- end
+
       local ok, wf = pcall(require, "vim.lsp._watchfiles")
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
@@ -186,6 +200,9 @@ return {
     event = "LazyFile",
     ---@class PluginLspOpts
     opts = {
+      diagnostics = {
+        float = { border = "rounded" },
+      },
       servers = { eslint = {} },
       --   setup = {
       --     eslint = function()
