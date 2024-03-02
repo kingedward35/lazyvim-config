@@ -3,6 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     event = "LazyFile",
     init = function()
+      -- require("lspconfig.ui.windows").default_options = {
+      --   border = "single",
+      -- }
       -- disable lsp watcher. Too slow on linux
       -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function()
       --   local border = {
@@ -17,7 +20,7 @@ return {
       --   }
       --   return { border = border }
       -- end
-
+      require("lspconfig.ui.windows").default_options.border = "rounded"
       local ok, wf = pcall(require, "vim.lsp._watchfiles")
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
@@ -201,7 +204,15 @@ return {
     ---@class PluginLspOpts
     opts = {
       diagnostics = {
-        float = { border = "rounded" },
+        -- float = { border = "rounded" },
+        float = {
+          source = false,
+          border = "rounded",
+          -- header = false,
+          format = function(diagnostic)
+            return string.format("%s: %s ", diagnostic.source or "", diagnostic.message)
+          end,
+        },
       },
       servers = { eslint = {} },
       --   setup = {

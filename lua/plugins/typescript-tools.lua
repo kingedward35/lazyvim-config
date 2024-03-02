@@ -12,6 +12,9 @@ return {
         includeInlayPropertyDeclarationTypeHints = true,
         includeInlayVariableTypeHints = true,
       },
+      -- expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
+      expose_as_code_action = "all",
+      code_lens = "on",
     },
     handlers = {
       -- because I don't want to format on save via typescript-tools

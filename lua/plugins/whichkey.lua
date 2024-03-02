@@ -18,7 +18,7 @@ return {
 
     local mappings = {
       [";"] = { "<cmd>Dashboard<cr>", "Dashboard" },
-      ["fb"] = { "<cmd>Telescope file_browser<cr>", "File Browser" },
+      -- ["fb"] = { "<cmd>Telescope file_browser<cr>", "File Browser" },
       ["w"] = { "<cmd>w!<CR>", "Save" },
       ["q"] = { "<cmd>q!<CR>", "Quit" },
       ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
@@ -90,7 +90,8 @@ return {
 
       l = {
         name = "LSP",
-        c = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+        -- c = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+        c = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         d = {
           "<cmd>Telescope lsp_document_diagnostics<cr>",
           "Document Diagnostics",
