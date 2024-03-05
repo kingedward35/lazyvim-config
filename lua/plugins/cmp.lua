@@ -56,7 +56,7 @@ local kind_icons = {
 }
 
 return {
-  { "hrsh7th/cmp-emoji" },
+  { "hrsh7th/cmp-emoji", event = "InsertEnter" },
   event = "InsertEnter",
   {
     "hrsh7th/nvim-cmp",
