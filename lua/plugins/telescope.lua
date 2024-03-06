@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-local harpoon = require("harpoon")
-harpoon:setup({})
+-- local harpoon = require("harpoon")
+-- harpoon:setup({})
 
 return {
   {
