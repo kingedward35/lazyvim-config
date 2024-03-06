@@ -7,5 +7,6 @@ return {
       go_to_definition = "<leader>dx", -- default '<leader>dx'
     },
   },
-  event = "BufEnter",
+  lazy = true,
+  -- event = "BufEnter",
 }

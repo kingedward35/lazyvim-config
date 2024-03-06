@@ -1,10 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.editor.leap",
-    "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.lsp.none-ls",
-    "lazyvim.plugins.extras.test.core",
-    "lazyvim.plugins.extras.vscode"
+    "lazyvim.plugins.extras.lsp.none-ls"
   ],
   "news": {
     "NEWS.md": "2123"
