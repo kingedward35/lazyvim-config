@@ -39,6 +39,7 @@ return {
   {
     "tiagovla/tokyodark.nvim",
     lazy = true,
+    priority = 1000,
     opts = {
       custom_palette = {
         black = "#000000",
