@@ -55,6 +55,22 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+-- vim.cmd("command! -nargs=* CodeiumDisable lua DisableCodeium()")
+-- vim.cmd("command! -nargs=* CodeiumEnable lua EnableCodeium()")
+--
+-- -- Define the function associated with the custom command
+-- function DisableCodeium()
+--   -- Your custom command logic goes here
+--   vim.g.codeium_enabled = false
+--   -- print("Executing MyCustomCommand with arguments: ", ...)
+-- end
+--
+-- function EnableCodeium()
+--   -- Your custom command logic goes here
+--   vim.g.codeium_enabled = true
+--   -- print("Executing MyCustomCommand with arguments: ", ...)
+-- end
+--
 -- Autoformat
 -- augroup _lsp
 --   autocmd!

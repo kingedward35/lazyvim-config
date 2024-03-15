@@ -11,6 +11,7 @@ local options = {
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
   fileencoding = "utf-8", -- the encoding written to a file
+  foldcolumn = "1",
   hlsearch = true, -- highlight all matches on previous search pattern
   ignorecase = true, -- ignore case in search patterns
   mouse = "a", -- allow the mouse to be used in neovim
@@ -40,9 +41,12 @@ local options = {
   scrolloff = 8, -- is one of my fav
   sidescrolloff = 8,
   guifont = "Iosevka Nerd Font:h18:b", -- the font used in graphical neovim applications
+  spelllang = "en_us",
+  spell = true,
 }
 -- Treesitter folding
-vim.wo.foldmethod = "expr"
+-- vim.wo.foldlevel = 20
+-- vim.wo.foldmethod = "expr"
 -- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 if vim.fn.has("nvim-0.9.0") == 1 then
