@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+
 -- local harpoon = require("harpoon")
 -- harpoon:setup({})
 
@@ -18,10 +19,12 @@ return {
       telescope.load_extension("file_browser")
       telescope.load_extension("git_worktree")
       telescope.load_extension("ui-select")
+      telescope.load_extension("live_grep_args")
     end,
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-ui-select.nvim" },
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
     },
     keys = function()
       return {

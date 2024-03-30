@@ -122,6 +122,12 @@ return {
           "Workspace Symbols",
         },
       },
+      -- vim.keymap.set(
+      --   "n",
+      --   "<leader>sp",
+      --   require("telescope").extensions.live_grep_args.live_grep_args,
+      --   { noremap = true }
+      -- )
       s = {
         name = "Search",
         t = { "<cmd>Telescope live_grep<cr>", "Find text" },
@@ -130,6 +136,7 @@ return {
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
+        p = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Search Path" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         f = { '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', "Search current file" },
