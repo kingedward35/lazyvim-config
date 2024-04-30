@@ -45,6 +45,12 @@ return {
         black = "#000000",
         bg0 = "#000000",
       },
+      custom_highlights = {
+        FloatBorder = { fg = "#fff000" },
+        FloatTitle = { fg = "#fff000" },
+        -- FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
+        -- FloatTitle = { fg = c.border_highlight, bg = c.bg_float },
+      },
       styles = {
         comments = { italic = true }, -- style for comments
         keywords = { italic = true }, -- style for keywords
