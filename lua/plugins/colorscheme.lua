@@ -46,8 +46,12 @@ return {
         bg0 = "#000000",
       },
       custom_highlights = {
-        FloatBorder = { fg = "#fff000" },
-        FloatTitle = { fg = "#fff000" },
+        -- FloatBorder = { fg = "#fff000" },
+        -- FloatTitle = { fg = "#fff000" },
+        -- #d39f2b
+        -- #8c00bf
+        FloatTitle = { fg = "#8c00bf" },
+        FloatBorder = { fg = "#8c00bf" },
         -- FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
         -- FloatTitle = { fg = c.border_highlight, bg = c.bg_float },
       },
