@@ -37,12 +37,18 @@ return {
           "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
           desc = "Switch Buffer",
         },
+        {
+          "<leader>m",
+          "<cmd>Telescope find_files<cr>",
+          desc = "Find Files",
+        },
         -- add a keymap to browse plugin files
       }
     end,
     opts = {
       defaults = {
         -- file_ignore_patterns = {},
+        -- path_display = { " filename_first" },
         prompt_prefix = " ",
         selection_caret = " ",
         -- path_display = { "smart" },

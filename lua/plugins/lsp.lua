@@ -399,6 +399,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = true,
+    commit = "38de86f82efd9ba0881203767d6a8e1815abca28",
     -- event = { "BufReadPre", "BufNewFile" },
     init = function()
       -- require("lspconfig.ui.windows").default_options = {
@@ -510,7 +511,7 @@ return {
     end,
     opts = {
       format = { timeout_ms = 5000 },
-      inlay_hints = { enabled = true },
+      inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
         -- rome = {
@@ -681,6 +682,7 @@ return {
     opts = {
       ensure_installed = {
         "eslint@4.8.0",
+        -- "eslint",
       },
       diagnostics = {
         -- float = { border = "rounded" },

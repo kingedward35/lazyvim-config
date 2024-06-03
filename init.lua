@@ -2,7 +2,7 @@
 require("config.lazy")
 
 -- vim.g.neovide_fullscreen = true
-vim.g.lazygit_config = false
+-- vim.g.lazygit_config = false
 
 -- vscode and nvim only settings
 -- vim.cmd('autocmd VimEnter * lua vim.fn.execute("lcd " .. vim.fn.expand("%:p:h"))')
