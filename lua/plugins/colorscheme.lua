@@ -39,11 +39,14 @@ return {
   {
     "tiagovla/tokyodark.nvim",
     lazy = true,
+    commit = "ba538ab69e8a4e3ebac127734b7deff9e7462463",
     priority = 1000,
     opts = {
       custom_palette = {
         black = "#000000",
         bg0 = "#000000",
+        -- bg4 = "#4A5057",
+        -- bg4 = "#8c00bf",
       },
       custom_highlights = {
         -- FloatBorder = { fg = "#fff000" },
@@ -54,6 +57,7 @@ return {
         FloatBorder = { fg = "#8c00bf" },
         LspInfoBorder = { fg = "#8c00bf" },
         CmpDocumentationBorder = { fg = "#8c00bf" },
+        -- TelescopeBorder = { fg = "#8c00bf", link = "#8c00bf" },
         TelescopeBorder = { fg = "#8c00bf" },
         TelescopePromptTitle = { fg = "#d39f2b" },
         TelescopeResultsComment = { fg = "#d39f2b" },
