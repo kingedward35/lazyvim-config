@@ -1,63 +1,7 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
-
-local Util = require("lazyvim.util")
-
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
-
-local check_backspace = function()
-  local col = vim.fn.col(".") - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
-
-local cmp_window = require("cmp.config.window")
-local cmp_mapping = require("cmp.config.mapping")
-
-local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
-  cmp_sources = {
-    nvim_lsp = "✨",
-    luasnip = "🚀",
-    buffer = "📝",
-    path = "📁",
-    cmdline = "💻",
-    emoji = "😀",
-    codeium = "",
-  },
-}
-
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
+  version = false,
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
@@ -83,25 +27,81 @@ return {
     -- },
   },
   opts = function(_, opts)
-    table.insert(opts.sources, 1, {
-      name = "cmp_tabnine",
-      group_index = 1,
-      priority = 100,
-    })
+    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+    local cmp = require("cmp")
+    local defaults = require("cmp.config.default")()
 
-    opts.formatting.format = Util.inject.args(opts.formatting.format, function(entry, item)
-      -- Hide percentage in the menu
-      if entry.source.name == "cmp_tabnine" then
-        item.menu = ""
-      end
-    end)
+    local Util = require("lazyvim.util")
+
+    local snip_status_ok, luasnip = pcall(require, "luasnip")
+    if not snip_status_ok then
+      return
+    end
+
+    local check_backspace = function()
+      local col = vim.fn.col(".") - 1
+      return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+    end
+
+    local kind_icons = {
+      Text = "",
+      Method = "m",
+      Function = "",
+      Constructor = "",
+      Field = "",
+      Variable = "",
+      Class = "",
+      Interface = "",
+      Module = "",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+      cmp_sources = {
+        nvim_lsp = "✨",
+        luasnip = "🚀",
+        buffer = "📝",
+        path = "📁",
+        cmdline = "💻",
+        emoji = "😀",
+        codeium = "",
+      },
+    }
+
+    -- table.insert(opts.sources, 1, {
+    --   name = "cmp_tabnine",
+    --   group_index = 1,
+    --   priority = 100,
+    -- })
+
+    -- opts.formatting.format = Util.inject.args(opts.formatting.format, function(entry, item)
+    --   -- Hide percentage in the menu
+    --   if entry.source.name == "cmp_tabnine" then
+    --     item.menu = ""
+    --   end
+    -- end)
     return {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
-      mapping = {
+      completion = {
+        completeopt = "menu,menuone,noinsert",
+      },
+      mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = "select" }),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -145,7 +145,7 @@ return {
           "i",
           "s",
         }),
-      },
+      }),
       formatting = {
         -- fields = { "abbr", "kind", "menu" },
         fields = { "kind", "abbr", "menu" },
@@ -182,10 +182,15 @@ return {
         select = false,
       },
       window = {
-        completion = cmp_window.bordered(),
-        documentation = cmp_window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+        -- completion = cmp_window.bordered(),
+        -- documentation = cmp_window.bordered(),
       },
       experimental = {
+        ghost_text = {
+          hl_group = "CmpGhostText",
+        },
         -- ghost_text = true,
         native_menu = false,
       },
