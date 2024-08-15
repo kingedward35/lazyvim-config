@@ -1,3 +1,6 @@
+local Util = require("tokyonight.util")
+local fg_gutter = "#3b4261"
+
 return {
   {
     "LazyVim/LazyVim",
@@ -63,6 +66,8 @@ return {
         TelescopeResultsComment = { fg = "#d39f2b" },
         NeoTreeDirectoryIcon = { fg = "#d39f2b" },
         NeoTreeDirectoryName = { fg = "#d39f2b" },
+        TreesitterContext = { bg = Util.blend_bg(fg_gutter, 0.8) },
+        -- TreesitterContext = { bg = "#fff000" },
         ["@variable"] = { fg = "#d39f2b" },
         -- FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
         -- FloatTitle = { fg = c.border_highlight, bg = c.bg_float },

@@ -665,6 +665,7 @@ return {
           },
         },
         vimls = {},
+        vtsls = {},
       },
       setup = {},
     },
