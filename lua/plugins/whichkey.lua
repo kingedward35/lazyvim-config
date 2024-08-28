@@ -386,6 +386,7 @@ function M.config()
     { "<leader>jt", group = "Toggle", "<cmd>lua require('package-info').toggle()<cr>" },
     { "<leader>jd", group = "Delete", "<cmd>lua require('package-info').delete()<cr>" },
     { "<leader>ju", group = "Update", "<cmd>lua require('package-info').update()<cr>" },
+    { "<leader>js", group = "Show", "<cmd>lua require('package-info').show()<cr>" },
   }
 
   wk.add(mappings)
