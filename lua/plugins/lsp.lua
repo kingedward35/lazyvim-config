@@ -510,6 +510,9 @@ return {
       end
     end,
     opts = {
+      codelens = {
+        enabled = true,
+      },
       format = { timeout_ms = 5000 },
       inlay_hints = { enabled = false },
       ---@type lspconfig.options

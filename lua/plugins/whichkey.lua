@@ -283,8 +283,11 @@ function M.config()
     },
     { "<leader>P", "<cmd>Telescope projects<cr>", desc = "Projects" },
     { "<leader>f", "za", desc = "Fold" },
-    { "<leader>C", group = "Codeium" },
-    { "<leader>Ct", "<cmd>Codeium Toggle<cr>", group = "Toggle Codeium" },
+    -- { "<leader>C", group = "Codeium" },
+    -- { "<leader>Ct", "<cmd>Codeium Toggle<cr>", group = "Toggle Codeium" },
+
+    { "<leader>C", group = "NeoCodeium" },
+    { "<leader>Ct", "<cmd>NeoCodeium toggle<cr>", group = "Toggle NeoCodeium" },
     {
       mode = { "n", "v" },
       { "<leader>k", group = "ChatGPT" },

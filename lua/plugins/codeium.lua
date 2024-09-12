@@ -2,7 +2,7 @@ return {
   {
     "Exafunction/codeium.vim",
     event = "BufEnter",
-    enabled = true,
+    enabled = false,
     -- event = "InsertEnter",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
@@ -27,13 +27,29 @@ return {
   -- add this to the file where you setup your other plugins:
   {
     "monkoose/neocodeium",
-    -- event = "VeryLazy",
-    enabled = false,
-    event = "BufEnter",
+    event = "VeryLazy",
+    enabled = true,
+    -- event = "BufEnter",
     config = function()
       local neocodeium = require("neocodeium")
       neocodeium.setup()
       vim.keymap.set("i", "<C-Enter>", neocodeium.accept)
+
+      vim.keymap.set("i", "<C-w>", function()
+        neocodeium.accept_word()
+      end)
+      vim.keymap.set("i", "<C-a>", function()
+        neocodeium.accept_line()
+      end)
+      vim.keymap.set("i", "<C-;>", function()
+        neocodeium.cycle_or_complete()
+      end)
+      vim.keymap.set("i", "<C-,>", function()
+        neocodeium.cycle_or_complete(-1)
+      end)
+      vim.keymap.set("i", "<C-x>", function()
+        neocodeium.clear()
+      end)
     end,
   },
 }
