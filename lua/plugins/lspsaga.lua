@@ -30,12 +30,14 @@ return {
       },
     },
     rename = {
-      quit = "<C-c>",
-      exec = "<CR>",
-      mark = "x",
-      confirm = "<CR>",
-      in_select = true,
-      whole_project = true,
+      keys = {
+        quit = "<C-c>",
+        exec = "<CR>",
+        mark = "x",
+        confirm = "<CR>",
+        in_select = true,
+        whole_project = true,
+      },
     },
     symbol_in_winbar = {
       color_mode = true,
