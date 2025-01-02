@@ -500,6 +500,7 @@ return {
       require("lspconfig.ui.windows").default_options.border = "rounded"
       local ok, wf = pcall(require, "vim.lsp._watchfiles")
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      keys[#keys + 1] = { "<C-k>", false, mode = { "i" } }
       -- change a keymap
       -- disable a keymap
       keys[#keys + 1] = { "K", false }
