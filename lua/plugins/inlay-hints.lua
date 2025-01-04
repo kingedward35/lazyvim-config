@@ -7,7 +7,8 @@ return {
   {
     "lvimuser/lsp-inlayhints.nvim",
     ft = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescriptreact", "svelte" },
-    enabled = enabled_inlay_hints,
+    -- enabled = enabled_inlay_hints,
+    enabled = false,
     lazy = true,
     opts = {
       debug_mode = true,

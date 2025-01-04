@@ -50,6 +50,15 @@ return {
         fzf_colors = true,
         fzf_opts = {
           ["--no-scrollbar"] = true,
+          -- options are sent as `<left>=<right>`
+          -- set to `false` to remove a flag
+          -- set to `true` for a no-value flag
+          -- for raw args use `fzf_args` instead
+          ["--ansi"] = true,
+          ["--info"] = "inline-right", -- fzf < v0.42 = "inline"
+          ["--height"] = "100%",
+          ["--layout"] = "reverse-list",
+          ["--highlight-line"] = true, -- fzf >= v0.53
         },
         defaults = {
           -- formatter = "path.filename_first",
@@ -99,12 +108,22 @@ return {
           })
         end,
         winopts = {
+          -- split = "belowright 10new",
           width = 0.8,
-          height = 0.8,
-          row = 0.5,
-          col = 0.5,
+          height = 0.9,
+          -- row = 0.5,
+          -- col = 0.5,
+          -- split = "belowleft new",
+          -- preview = {
+          --   scrollchars = { "┃", "" },
+          --   -- layout = "reverse-list",
+          -- },
           preview = {
-            scrollchars = { "┃", "" },
+            vertical = "down:85%",
+            horizontal = "right:50%",
+            layout = "horizontal",
+            -- If &columns < flip_columns, use horizontal preview; otherwise, vertical preview
+            -- flip_columns = 160,
           },
         },
         files = {
@@ -132,6 +151,15 @@ return {
           },
           code_actions = {
             previewer = vim.fn.executable("delta") == 1 and "codeaction_native" or nil,
+          },
+        },
+        preview = {
+          vertical = "down:45%",
+        },
+        keymap = {
+          builtin = {
+            ["<C-d>"] = "preview-page-down",
+            ["<C-u>"] = "preview-page-up",
           },
         },
       }
