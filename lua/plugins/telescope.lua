@@ -12,6 +12,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     -- cmd = "Telescope",
+    enabled = true,
     event = "VeryLazy",
     config = function(_, opts)
       telescope.setup(opts)
@@ -32,16 +33,16 @@ return {
         { "<leader>st", false },
         { "<leader>fb", false },
         { "<leader>,", false },
-        {
-          "<leader>b",
-          "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-          desc = "Switch Buffer",
-        },
-        {
-          "<leader>m",
-          "<cmd>Telescope find_files<cr>",
-          desc = "Find Files",
-        },
+        -- {
+        --   "<leader>b",
+        --   "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+        --   desc = "Switch Buffer",
+        -- },
+        -- {
+        --   "<leader>m",
+        --   "<cmd>Telescope find_files<cr>",
+        --   desc = "Find Files",
+        -- },
         -- add a keymap to browse plugin files
       }
     end,

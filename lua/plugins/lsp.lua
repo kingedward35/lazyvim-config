@@ -705,6 +705,7 @@ return {
         },
       },
       setup = {},
+      hls = {},
     },
     -- init = function()
     --   local keys = require("lazyvim.plugins.lsp.keymaps").get()

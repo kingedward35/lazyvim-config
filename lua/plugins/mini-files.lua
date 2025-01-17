@@ -64,6 +64,24 @@ return {
   config = function(_, opts)
     -- Set up mini.files
     require("mini.files").setup(opts)
+    -- The Code Below is for Relative Line Numbers in the viewer
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesWindowUpdate",
+      callback = function(args)
+        local win = vim.wo[args.data.win_id]
+        win.number = true
+        win.relativenumber = true
+      end,
+    })
+
+    -- The Code Below is for Line Numbers in the viewer
+
+    -- vim.api.nvim_create_autocmd("User", {
+    --   pattern = "MiniFilesWindowUpdate",
+    --   callback = function(args)
+    --     vim.wo[args.data.win_id].number = true
+    --   end,
+    -- })
     -- Load custom keymaps
 
     -- mini_files_km.setup(opts)
