@@ -14,6 +14,13 @@ return {
       end,
       desc = "Buffers",
     },
+    {
+      "<leader>b",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
     -- {
     --   "<leader>G",
     --   function()
@@ -273,6 +280,7 @@ return {
         buffers = {
           layout = {
             preview = false,
+            reverse = false,
             layout = {
               backdrop = false,
               width = 0.5,
@@ -287,6 +295,15 @@ return {
               { win = "list", border = "none" },
               { win = "preview", height = 0.4, border = "top" },
             },
+          },
+          win = {
+            input = {
+              keys = {
+                ["dd"] = "bufdelete",
+                ["<c-d>"] = { "bufdelete", mode = { "n", "i" } },
+              },
+            },
+            list = { keys = { ["dd"] = "bufdelete" } },
           },
         },
       },
@@ -307,7 +324,7 @@ return {
             win = "preview",
             width = 0.50,
             border = "rounded",
-            title = " Preview ",
+            title = "{preview:Preview}",
             title_pos = "center",
           },
         },
