@@ -21,13 +21,13 @@ return {
       end,
       desc = "Buffers",
     },
-    -- {
-    --   "<leader>G",
-    --   function()
-    --     Snacks.picker.grep()
-    --   end,
-    --   desc = "Grep",
-    -- },
+    {
+      "<leader>G",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep",
+    },
     {
       "<leader>:",
       function()
@@ -277,6 +277,8 @@ return {
   opts = {
     picker = {
       sources = {
+        files = { hidden = true },
+        grep = { hidden = true },
         buffers = {
           layout = {
             preview = false,
