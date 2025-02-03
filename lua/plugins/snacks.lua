@@ -8,6 +8,13 @@ return {
     { "<leader>sH", false },
     { "<leader>fr", false },
     {
+      "<leader>e",
+      function()
+        Snacks.picker.explorer()
+      end,
+      desc = "Explorer",
+    },
+    {
       "<leader>,",
       function()
         Snacks.picker.buffers()
@@ -276,9 +283,59 @@ return {
   },
   opts = {
     picker = {
+      matcher = {
+        -- fuzzy = true, -- use fuzzy matching
+        smartcase = true, -- use smartcase
+        ignorecase = false, -- use ignorecase
+        sort_empty = true, -- sort results when the search string is empty
+        filename_bonus = true, -- give bonus for matching file names (last part of the path)
+        -- file_pos = true, -- support patterns like `file:line:col` and `file:line`
+        -- the bonusses below, possibly require string concatenation and path normalization,
+        -- so this can have a performance impact for large lists and increase memory usage
+        -- cwd_bonus = false, -- give bonus for matching files in the cwd
+        -- frecency = false, -- frecency bonus
+      },
       sources = {
-        files = { hidden = true },
+        files = { hidden = true, smartcase = false },
         grep = { hidden = true },
+        explorer = {
+          hidden = true,
+          tree = true,
+          layout = {
+            layout = {
+              backdrop = false,
+              width = 60,
+              min_width = 40,
+              height = 0,
+              position = "right",
+              border = "none",
+              box = "vertical",
+              {
+                win = "input",
+                height = 1,
+                border = "rounded",
+                title = "{title} {live} {flags}",
+                title_pos = "center",
+              },
+              { win = "list", border = "none" },
+              { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+            },
+          },
+          win = {
+            list = {
+              keys = {
+                ["<BS>"] = "explorer_up",
+                ["a"] = "explorer_add",
+                ["d"] = "explorer_del",
+                ["r"] = "explorer_rename",
+                ["c"] = "explorer_copy",
+                ["y"] = "explorer_yank",
+                ["<c-c>"] = "explorer_cd",
+                ["."] = "explorer_focus",
+              },
+            },
+          },
+        },
         buffers = {
           layout = {
             preview = false,
@@ -333,6 +390,7 @@ return {
       },
       formatters = {
         file = {
+          truncate = 80,
           filename_first = false, -- display filename before the file path
         },
       },
