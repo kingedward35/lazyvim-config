@@ -17,7 +17,9 @@ return {
     {
       "<leader>,",
       function()
-        Snacks.picker.buffers()
+        Snacks.picker.buffers({
+          sort_lastused = true,
+        })
       end,
       desc = "Buffers",
     },
@@ -337,6 +339,7 @@ return {
           },
         },
         buffers = {
+          sort_lastused = true,
           layout = {
             preview = false,
             reverse = false,
