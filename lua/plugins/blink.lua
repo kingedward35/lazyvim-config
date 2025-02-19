@@ -122,7 +122,9 @@ return {
         ["<Down>"] = { "select_next", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
-        cmdline = {
+      },
+      cmdline = {
+        keymap = {
           preset = "default",
           ["<Enter>"] = {},
           ["<CR>"] = {},
