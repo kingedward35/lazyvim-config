@@ -72,7 +72,7 @@ return {
         },
       })
 
-      -- require("template-string").setup({})
+      require("template-string").setup({})
       require("ts_context_commentstring").setup({})
     end,
     dependencies = {

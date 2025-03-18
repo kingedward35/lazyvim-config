@@ -304,6 +304,8 @@ return {
           hidden = true,
           tree = true,
           layout = {
+            reverse = false,
+            -- preview = true,
             layout = {
               backdrop = false,
               width = 60,

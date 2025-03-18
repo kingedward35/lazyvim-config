@@ -1,6 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
+  enabled = false,
   lazy = true,
   config = function()
     local banned_messages =

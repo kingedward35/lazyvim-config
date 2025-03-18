@@ -27,6 +27,9 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
 vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "j", "jzz", opts)
+vim.keymap.set("n", "k", "kzz", opts)
+vim.keymap.set("n", "G", "Gzz", opts)
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)

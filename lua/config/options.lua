@@ -57,10 +57,13 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
 -- vim.cmd("source ~/.config/nvim/lua/extensions/neovide/init.vim")
-vim.diagnostic.config({
-  virtual_text = false,
-  virtual_lines = { only_current_line = true },
-})
+
+-- vim.diagnostic.config({
+--   virtual_text = false,
+--   virtual_lines = false,
+--   -- virtual_lines = { only_current_line = true },
+-- })
+
 -- vim.g.rooter_pattern = {'.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt', '.cabal', '.project'}
 -- vim.g.outermost_root = true
 

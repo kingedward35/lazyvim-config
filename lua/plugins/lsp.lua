@@ -514,6 +514,11 @@ return {
       codelens = {
         enabled = true,
       },
+      diagnostics = {
+        virtual_text = { current_line = true },
+        -- virtual_lines = { current_line = true },
+        -- underline = true,
+      },
       format = { timeout_ms = 5000 },
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
