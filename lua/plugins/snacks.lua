@@ -284,6 +284,7 @@ return {
     },
   },
   opts = {
+    scroll = { enabled = false },
     picker = {
       matcher = {
         -- fuzzy = true, -- use fuzzy matching
