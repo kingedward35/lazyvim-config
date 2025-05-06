@@ -284,6 +284,7 @@ return {
     },
   },
   opts = {
+    bigfile = { enabled = true },
     scroll = { enabled = false },
     picker = {
       matcher = {
@@ -383,7 +384,13 @@ return {
           {
             box = "vertical",
             { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
-            { win = "input", height = 1, border = "rounded", title = "{source} {live}", title_pos = "center" },
+            {
+              win = "input",
+              height = 1,
+              border = "rounded",
+              title = "{source} {live}",
+              title_pos = "center",
+            },
           },
           {
             win = "preview",
