@@ -73,6 +73,7 @@ return {
         BlinkCmpMenuSelection = { bg = "#2b2f38" },
         TelescopePromptTitle = { fg = "#d39f2b" },
         TelescopeResultsComment = { fg = "#d39f2b" },
+        CursorLineNr = { fg = "#fff017" },
         NeoTreeDirectoryIcon = { fg = "#d39f2b" },
         NeoTreeDirectoryName = { fg = "#d39f2b" },
         TreesitterContext = { bg = Util.blend_bg(fg_gutter, 0.8) },
