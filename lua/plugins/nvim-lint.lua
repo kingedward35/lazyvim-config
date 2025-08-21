@@ -91,14 +91,15 @@ return {
     --   end,
     -- }
 
-    -- lint.linters_by_ft = {
-    --   javascript = { "eslint" },
-    --   typescript = { "eslint" },
-    --   javascriptreact = { "eslint" },
-    --   typescriptreact = { "eslint" },
-    --   svelte = { "eslint" },
-    --   python = { "pylint" },
-    -- }
+    lint.linters_by_ft = {
+      -- javascript = { "eslint" },
+      -- typescript = { "eslint" },
+      -- javascriptreact = { "eslint" },
+      -- typescriptreact = { "eslint" },
+      -- svelte = { "eslint" },
+      -- python = { "pylint" },
+      markdown = { "markdownlint" },
+    }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
