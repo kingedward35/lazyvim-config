@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.files",
+  "nvim-mini/mini.files",
   opts = function(_, opts)
     -- I didn't like the default mappings, so I modified them
     -- Module mappings created only inside explorer.
