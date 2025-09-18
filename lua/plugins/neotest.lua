@@ -25,8 +25,8 @@ return {
       return
     end
 
-    local utils = require("lazyvim.util")
-    local get_root = require("lazyvim.util").root.get
+    local utils = LazyVim
+    local get_root = LazyVim.root.get
     require("neodev").setup({
       library = { plugins = { "neotest" }, types = true },
     })

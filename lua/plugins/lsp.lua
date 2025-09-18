@@ -399,7 +399,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    commit = "38de86f82efd9ba0881203767d6a8e1815abca28",
     -- event = { "BufReadPre", "BufNewFile" },
     init = function()
       -- require("lspconfig.ui.windows").default_options = {
@@ -497,18 +496,10 @@ return {
           },
         }, -- }}}
       }
-      require("lspconfig.ui.windows").default_options.border = "rounded"
-      local ok, wf = pcall(require, "vim.lsp._watchfiles")
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       keys[#keys + 1] = { "<C-k>", false, mode = { "i" } }
-      -- change a keymap
       -- disable a keymap
       keys[#keys + 1] = { "K", false }
-      if ok then
-        wf._watchfunc = function()
-          return function() end
-        end
-      end
     end,
     opts = {
       codelens = {
@@ -741,7 +732,7 @@ return {
       },
       setup = {
         eslint = function()
-          require("lazyvim.util").lsp.on_attach(function(client)
+          LazyVim.lsp.on_attach(function(client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
             elseif client.name == "tsserver" then

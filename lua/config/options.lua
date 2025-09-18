@@ -71,8 +71,6 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.g.skip_ts_context_commentstring_module = true
-
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 -- vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

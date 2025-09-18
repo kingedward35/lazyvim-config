@@ -8,7 +8,7 @@ return {
   },
   -- correctly setup mason lsp / dap extensions
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, { "css-lsp", "html-lsp", "js-debug-adapter" })
     end,
@@ -20,9 +20,8 @@ return {
     config = function()
       local dap = require("dap")
       local dap_js = require("dap-vscode-js")
-      local mason_registry = require("mason-registry")
-      local js_debug_pkg = mason_registry.get_package("js-debug-adapter")
-      local js_debug_path = js_debug_pkg:get_install_path()
+      -- Mason v2 API: Use standard Mason path structure
+      local js_debug_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter"
       dap_js.setup({
         debugger_path = js_debug_path,
         adapters = { "pwa-node", "node-terminal" }, -- which adapters to register in nvim-dap

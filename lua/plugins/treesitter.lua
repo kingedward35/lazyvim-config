@@ -52,7 +52,7 @@ return {
     build = ":TSUpdate",
     event = { "LazyFile", "VeryLazy" },
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup({
         autotag = {
           enable_close_on_slash = false,
         },
@@ -61,25 +61,11 @@ return {
           enable = true,
         },
         indent = { enable = true, disable = { "yaml", "python", "html" } },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-        },
-        rainbow = {
-          enable = true,
-          query = "rainbow-parens",
-          -- disable = { "jsx", "html" },
-        },
       })
 
       require("template-string").setup({})
-      require("ts_context_commentstring").setup({})
     end,
     dependencies = {
-      {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        lazy = true,
-      },
       {
         "axelvc/template-string.nvim",
         lazy = true,

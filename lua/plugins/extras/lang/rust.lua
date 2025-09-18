@@ -29,7 +29,7 @@ return {
 
   -- correctly setup mason lsp / dap extensions
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, { "codelldb", "rust-analyzer", "taplo" })
     end,
@@ -43,7 +43,7 @@ return {
       -- make sure mason installs the server
       setup = {
         rust_analyzer = function(_, opts)
-          require("lazyvim.util").lsp.on_attach(function(client, buffer)
+          LazyVim.lsp.on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "rust_analyzer" then
               vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++quiet<cr>", { buffer = buffer })
@@ -101,7 +101,7 @@ return {
             end
           end
 
-          require("lazyvim.util").lsp.on_attach(function(client, buffer)
+          LazyVim.lsp.on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "taplo" then
               vim.keymap.set("n", "K", show_documentation, { buffer = buffer })

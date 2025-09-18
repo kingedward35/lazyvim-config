@@ -19,11 +19,10 @@ return {
       },
     },
     version = not vim.g.lazyvim_blink_main and "*",
-    -- version = "v0.*", -- REQUIRED release tag to download pre-built binaries
+    -- Fixed: Use proper version constraint for LazyVim v15.0.0
     opts_extend = {
-      "sources.completion.enabled_providers",
-      "sources.compat",
       "sources.default",
+      "sources.compat",
     },
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
@@ -34,6 +33,12 @@ return {
         end,
       },
       completion = {
+        accept = {
+          -- experimental auto-brackets support
+          auto_brackets = {
+            enabled = true,
+          },
+        },
         menu = {
           enabled = true,
           min_width = 15,
@@ -46,9 +51,6 @@ return {
               { "kind_icon", gap = 1 },
               { "label", "label_description", gap = 1 },
               { "kind" },
-            },
-            components = {
-              kind_icon = { width = { fill = true } },
             },
           },
         },
@@ -81,42 +83,22 @@ return {
           },
         },
       },
-      -- sources = {
-      --   providers = {
-      --     { "blink.cmp.sources.lsp", name = "LSP" },
-      --     { "blink.cmp.sources.snippets", name = "Snippets", score_offset = -1 },
-      --     {
-      --       "blink.cmp.sources.path",
-      --       name = "Path",
-      --       score_offset = 3,
-      --       opts = { get_cwd = vim.uv.cwd },
-      --     },
-      --     {
-      --       "blink.cmp.sources.buffer",
-      --       name = "Buffer",
-      --       keyword_length = 3,
-      --       fallback_for = { "LSP" }, -- PENDING https://github.com/Saghen/blink.cmp/issues/122
-      --     },
-      --   },
-      -- },
       sources = {
         -- adding any nvim-cmp sources here will enable them
         -- with blink.compat
         compat = {},
         default = { "lsp", "path", "snippets", "buffer", "emoji" },
-        cmdline = require("blink.cmp.config.sources").default.cmdline,
         providers = {
           emoji = {
             module = "blink-emoji",
             name = "Emoji",
             score_offset = 15, -- Tune by preference
+            opts = {},
           },
         },
       },
       keymap = {
         preset = "default",
-        ["<Enter>"] = {},
-        ["<CR>"] = {},
         ["<C-y>"] = { "accept" },
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
@@ -124,10 +106,10 @@ return {
         ["<C-j>"] = { "select_next", "fallback" },
       },
       cmdline = {
+        enabled = true,
+        sources = { "path", "cmdline" },
         keymap = {
           preset = "default",
-          ["<Enter>"] = {},
-          ["<CR>"] = {},
           ["<C-y>"] = { "accept" },
           ["<Up>"] = { "select_prev", "fallback" },
           ["<Down>"] = { "select_next", "fallback" },
@@ -136,7 +118,6 @@ return {
         },
       },
       appearance = {
-        highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
         -- Useful for when your theme doesn't support blink.cmp
         -- Will be removed in a future release
@@ -148,37 +129,28 @@ return {
           Text = "󰉿",
           Method = "m",
           Function = "󰊕",
-          Constructor = "",
-          Field = "",
+          Constructor = "",
+          Field = "",
           Variable = "󰆦",
           Class = "󰊲",
-          Interface = "",
-          Module = "",
-          Property = "",
-          Unit = "",
+          Interface = "",
+          Module = "",
+          Property = "",
+          Unit = "",
           Value = "󱀍 ",
-          Enum = "",
+          Enum = "",
           Keyword = "󰌋",
-          Snippet = "",
-          Color = "",
+          Snippet = "",
+          Color = "",
           File = "󰈔",
-          Reference = "",
-          Folder = "",
-          EnumMember = "",
+          Reference = "",
+          Folder = "",
+          EnumMember = "",
           Constant = "󰅫",
-          Struct = "",
-          Event = "",
-          Operator = " ",
-          TypeParameter = " ",
-          -- cmp_sources = {
-          --   nvim_lsp = "✨",
-          --   luasnip = "🚀",
-          --   buffer = "📝",
-          --   path = "📁",
-          --   cmdline = "💻",
-          --   emoji = "😀",
-          --   codeium = "",
-          -- },
+          Struct = "",
+          Event = "",
+          Operator = " ",
+          TypeParameter = " ",
         },
       },
     },
