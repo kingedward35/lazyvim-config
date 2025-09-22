@@ -49,26 +49,42 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "LazyFile", "VeryLazy" },
-    config = function()
-      require("nvim-treesitter").setup({
-        autotag = {
-          enable_close_on_slash = false,
-        },
-        ensure_installed = { "vim", "lua" },
-        highlight = {
-          enable = true,
-        },
-        indent = { enable = true, disable = { "yaml", "python", "html" } },
-      })
-
-      require("template-string").setup({})
-    end,
+    opts = {
+      highlight = { enable = true },
+      indent = { enable = true },
+      ensure_installed = {
+        "bash",
+        "c",
+        "diff",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "printf",
+        "python",
+        "query",
+        "regex",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "xml",
+        "yaml",
+      },
+    },
     dependencies = {
       {
         "axelvc/template-string.nvim",
-        lazy = true,
+        config = function()
+          require("template-string").setup({})
+        end,
       },
     },
   },
