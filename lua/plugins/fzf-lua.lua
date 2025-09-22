@@ -18,9 +18,12 @@ return {
       config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
       config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
 
-      -- Trouble
+      -- Trouble integration with error handling
       if LazyVim.has("trouble.nvim") then
-        config.defaults.actions.files["ctrl-t"] = require("trouble.sources.fzf").actions.open
+        local ok, trouble_fzf = pcall(require, "trouble.sources.fzf")
+        if ok and trouble_fzf.actions and trouble_fzf.actions.open then
+          config.defaults.actions.files["ctrl-t"] = trouble_fzf.actions.open
+        end
       end
 
       -- Toggle root dir / cwd
@@ -32,7 +35,11 @@ return {
         LazyVim.pick.open(ctx.__INFO.cmd, o)
       end
       config.defaults.actions.files["alt-c"] = config.defaults.actions.files["ctrl-r"]
-      config.set_action_helpstr(config.defaults.actions.files["ctrl-r"], "toggle-root-dir")
+
+      -- Safely set action help string if the function exists
+      if config.set_action_helpstr and type(config.set_action_helpstr) == "function" then
+        pcall(config.set_action_helpstr, config.defaults.actions.files["ctrl-r"], "toggle-root-dir")
+      end
 
       local img_previewer ---@type string[]?
       for _, v in ipairs({
@@ -173,7 +180,7 @@ return {
         -- use the same prompt for all pickers for profile `default-title` and
         -- profiles that use `default-title` as base profile
         local function fix(t)
-          t.prompt = t.prompt ~= nil and " " or nil
+          t.prompt = t.prompt ~= nil and " " or nil
           for _, v in pairs(t) do
             if type(v) == "table" then
               fix(v)
@@ -205,3 +212,4 @@ return {
     },
   },
 }
+
