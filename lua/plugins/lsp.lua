@@ -496,10 +496,7 @@ return {
           },
         }, -- }}}
       }
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = { "<C-k>", false, mode = { "i" } }
-      -- disable a keymap
-      keys[#keys + 1] = { "K", false }
+      -- migrated: use servers['*'].keys in opts instead of keymaps.get()
     end,
     opts = {
       codelens = {
@@ -514,6 +511,13 @@ return {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
+        ["*"] = {
+          keys = {
+            { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", has = "definition" },
+            { "K", false },
+            { "<C-k>", false, mode = { "i" } },
+          },
+        },
         -- rome = {
         --   root_dir = function(fname)
         --     return require("lspconfig").util.root_pattern("rome.json")(fname)
@@ -666,6 +670,10 @@ return {
         },
         vimls = {},
         vtsls = {
+          on_init = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
           -- end,
@@ -730,17 +738,7 @@ return {
           end,
         },
       },
-      setup = {
-        eslint = function()
-          LazyVim.lsp.on_attach(function(client)
-            if client.name == "eslint" then
-              client.server_capabilities.documentFormattingProvider = true
-            elseif client.name == "tsserver" then
-              client.server_capabilities.documentFormattingProvider = false
-            end
-          end)
-        end,
-      },
+      setup = {},
       -- },
       -- setup = {
       --   eslint = function()
