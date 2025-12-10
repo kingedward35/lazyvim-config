@@ -37,6 +37,27 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function(args)
+    vim.b.autoformat = false
+
+    local map = function(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, desc = desc })
+    end
+
+    map("n", "<leader>lf", function()
+      require("conform").format({
+        bufnr = args.buf,
+        async = false,
+        quiet = false,
+        lsp_fallback = true,
+      })
+    end, "Format markdown (manual)")
+  end,
+})
+
+
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = { "*.rs" },
   callback = function()
