@@ -103,9 +103,14 @@ vim.keymap.set("n", "<leader>sf", '<cmd>lua require("spectre").open_file_search(
   desc = "Search on current file",
 })
 
--- Sidekick
+-- Sidekick (guarded in case the plugin isn't installed)
 vim.keymap.set({ "n", "i", "v" }, "<C-t>", function()
-  require("sidekick.cli").toggle()
+  local ok, sidekick = pcall(require, "sidekick.cli")
+  if ok then
+    sidekick.toggle()
+  else
+    vim.notify("Sidekick plugin is not installed", vim.log.levels.WARN)
+  end
 end, {
   desc = "Toggle Sidekick Window",
   silent = true,
