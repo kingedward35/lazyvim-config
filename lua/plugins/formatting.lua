@@ -16,6 +16,7 @@ return {
       markdown = { "markdownlint", "prettier" },
       -- graphql = { "prettier" },
       lua = { "stylua" },
+      svg = { "prettier" },
     },
   },
 }

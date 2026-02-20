@@ -333,7 +333,7 @@ function M.config()
     --     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     --     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     { "<leader>l", group = "LSP" },
-    { "<leader>lc", "<cmd>lua require('fzf-lua').lsp_code_actions()<cr>", desc = "Code Action" },
+    { "<leader>lc", "<cmd>Lspsaga code_action<cr>", desc = "Code Action" },
     { "<leader>ld", "<cmd>lua require('fzf-lua').diagnostics_document()<cr>", desc = "Document Diagnostics" },
     { "<leader>lw", "<cmd>lua require('fzf-lua').diagnostics_workspace()<cr>", desc = "Workspace Diagnostics" },
     { "<leader>lf", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<cr>", desc = "Format" },

@@ -115,3 +115,9 @@ end, {
   desc = "Toggle Sidekick Window",
   silent = true,
 })
+
+-- LSP Code Actions
+vim.keymap.set("n", "<leader>lc", "<cmd>Lspsaga code_action<cr>", {
+  desc = "Code Action",
+  silent = true,
+})
