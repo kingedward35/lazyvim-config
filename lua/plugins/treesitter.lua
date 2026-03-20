@@ -49,6 +49,39 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = function()
+      local languages = {
+        "bash",
+        "c",
+        "css",
+        "diff",
+        "dtd",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "printf",
+        "python",
+        "query",
+        "regex",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "xml",
+        "yaml",
+      }
+
+      require("nvim-treesitter").update(languages, { summary = true }):wait(300000)
+    end,
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
@@ -64,7 +97,6 @@ return {
         "javascript",
         "jsdoc",
         "json",
-        "jsonc",
         "lua",
         "luadoc",
         "luap",
