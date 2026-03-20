@@ -55,7 +55,8 @@ vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
 -- Comment out multiple lines
-vim.keymap.set("v", "<leader>/", '<Esc><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)
+vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Comment line" })
+vim.keymap.set("v", "<leader>/", "gc", { remap = true, desc = "Comment selection" })
 
 -- Move text up and down
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
@@ -113,11 +114,5 @@ vim.keymap.set({ "n", "i", "v" }, "<C-t>", function()
   end
 end, {
   desc = "Toggle Sidekick Window",
-  silent = true,
-})
-
--- LSP Code Actions
-vim.keymap.set("n", "<leader>lc", "<cmd>Lspsaga code_action<cr>", {
-  desc = "Code Action",
   silent = true,
 })

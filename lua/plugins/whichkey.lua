@@ -64,7 +64,7 @@
 --       { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
 --       { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
 --       { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
---       { "<leader>/", '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', desc = "Comment" },
+--       { "<leader>/", "gcc", desc = "Comment", remap = true },
 --       { "<leader>r", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
 --       {
 --         "<leader>m",
@@ -268,7 +268,7 @@ function M.config()
     { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
-    { "<leader>/", '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', desc = "Comment" },
+    { "<leader>/", "gcc", desc = "Comment", remap = true },
     { "<leader>r", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
     -- {
     --   "<leader>m",
@@ -333,7 +333,7 @@ function M.config()
     --     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     --     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     { "<leader>l", group = "LSP" },
-    { "<leader>lc", "<cmd>Lspsaga code_action<cr>", desc = "Code Action" },
+    { "<leader>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
     { "<leader>ld", "<cmd>lua require('fzf-lua').diagnostics_document()<cr>", desc = "Document Diagnostics" },
     { "<leader>lw", "<cmd>lua require('fzf-lua').diagnostics_workspace()<cr>", desc = "Workspace Diagnostics" },
     { "<leader>lf", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<cr>", desc = "Format" },
