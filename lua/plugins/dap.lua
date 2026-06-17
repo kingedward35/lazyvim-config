@@ -21,10 +21,10 @@ return {
           require("dap.ext.autocompl").attach()
         end,
       })
-      require("which-key").register({
-        ["<leader>db"] = { name = "+breakpoints" },
-        ["<leader>ds"] = { name = "+steps" },
-        ["<leader>dv"] = { name = "+views" },
+      require("which-key").add({
+        { "<leader>db", group = "breakpoints" },
+        { "<leader>ds", group = "steps" },
+        { "<leader>dv", group = "views" },
       })
     end,
     keys = {

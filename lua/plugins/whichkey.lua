@@ -220,7 +220,7 @@
 -- }
 local M = {
   "folke/which-key.nvim",
-  event = "VeryLazy",
+  lazy = false,
 }
 
 function M.config()
@@ -254,8 +254,8 @@ function M.config()
     show_help = false,
     show_keys = false,
     disable = {
-      buftypes = {},
-      filetypes = { "TelescopePrompt" },
+      bt = {},
+      ft = { "TelescopePrompt" },
     },
   })
 
@@ -287,7 +287,7 @@ function M.config()
     -- { "<leader>Ct", "<cmd>Codeium Toggle<cr>", group = "Toggle Codeium" },
 
     { "<leader>C", group = "NeoCodeium" },
-    { "<leader>Ct", "<cmd>NeoCodeium toggle<cr>", group = "Toggle NeoCodeium" },
+    { "<leader>Ct", "<cmd>NeoCodeium toggle<cr>", desc = "Toggle NeoCodeium" },
     -- {
     -- mode = { "n", "v" },
     -- { "<leader>k", group = "ChatGPT" },
@@ -358,13 +358,12 @@ function M.config()
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
     { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>sf", "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", desc = "Search current file" },
-    { "<leader>sS", "<cmd>lua require('spectre').toggle()<CR>", desc = "Search all files" },
     { "<leader>n", group = "Neotest" },
-    { "<leader>nr", group = "Run file", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>" },
-    { "<leader>nn", group = "Run nearest", "<cmd>lua require('neotest').run.run()<cr>" },
-    { "<leader>no", group = "Open output", "<cmd>lua require('neotest').output.open({ enter = true })<cr> " },
-    { "<leader>nt", group = "Toggle summary", "<cmd>lua require('neotest').summary.toggle()<cr>" },
-    { "<leader>nl", group = "Run last test", "<cmd>lua require('neotest').run.run_last()<cr>" },
+    { "<leader>nr", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run file" },
+    { "<leader>nn", "<cmd>lua require('neotest').run.run()<cr>", desc = "Run nearest" },
+    { "<leader>no", "<cmd>lua require('neotest').output.open({ enter = true })<cr> ", desc = "Open output" },
+    { "<leader>nt", "<cmd>lua require('neotest').summary.toggle()<cr>", desc = "Toggle summary" },
+    { "<leader>nl", "<cmd>lua require('neotest').run.run_last()<cr>", desc = "Run last test" },
     { "<leader>t", group = "Terminal" },
     { "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node" },
     { "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", desc = "NCDU" },
@@ -377,7 +376,7 @@ function M.config()
     { "<leader>jt", "<cmd>lua require('package-info').toggle()<cr>", desc = "Toggle" },
     { "<leader>jd", "<cmd>lua require('package-info').delete()<cr>", desc = "Delete" },
     { "<leader>ju", "<cmd>lua require('package-info').update()<cr>", desc = "Update" },
-    { "<leader>js", "<cmd>lua require('package-info').show()<cr>", desc = "Show" }},{
+    { "<leader>js", "<cmd>lua require('package-info').show()<cr>", desc = "Show" }
   }
 
   wk.add(mappings)
