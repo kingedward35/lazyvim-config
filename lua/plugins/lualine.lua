@@ -118,18 +118,19 @@ return {
           lualine_c = {
             {
               function()
-                if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+                local head = vim.g.worktree_branch_for_statusline or vim.b.gitsigns_head
+
+                if not head or head == "" then
                   return ""
                 end
 
-                local git_status = vim.b.gitsigns_status_dict
-
+                local git_status = vim.b.gitsigns_status_dict or {}
                 local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
                 local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed)
                   or ""
                 local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed)
                   or ""
-                local branch_name = "   " .. git_status.head .. " "
+                local branch_name = "   " .. head .. " "
 
                 return "%#StatusGitInfo#" .. branch_name .. added .. changed .. removed
               end,

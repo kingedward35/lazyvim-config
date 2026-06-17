@@ -679,6 +679,10 @@ return {
           -- end,
           single_file_support = false,
           settings = {
+            vtsls = {
+              -- Enable checkJs for JavaScript files without requiring jsconfig.json
+              autoUseWorkspaceTsdk = true,
+            },
             typescript = {
               referencesCodeLens = {
                 enabled = true,
@@ -705,6 +709,8 @@ return {
                 enumMemberValues = { enabled = true },
               },
             },
+            -- Enable type checking for JS files
+            ["js/ts.implicitProjectConfig.checkJs"] = true,
           },
         },
       },

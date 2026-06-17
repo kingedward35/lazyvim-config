@@ -1,6 +1,7 @@
 return {
   "m4xshen/hardtime.nvim",
   event = "BufEnter",
+  enabled = false,
   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   -- opts = {},
   opts = function(_, opts)
