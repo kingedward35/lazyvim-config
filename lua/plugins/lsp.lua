@@ -673,6 +673,7 @@ return {
           on_init = function(client)
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
+            client.server_capabilities.semanticTokensProvider = nil
           end,
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
