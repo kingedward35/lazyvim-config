@@ -27,9 +27,8 @@ return {
   -- add this to the file where you setup your other plugins:
   {
     "monkoose/neocodeium",
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
     enabled = true,
-    -- event = "BufEnter",
     config = function()
       local neocodeium = require("neocodeium")
       neocodeium.setup()

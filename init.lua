@@ -1,4 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
+local cwd = vim.uv.cwd()
+if not cwd or vim.fn.isdirectory(cwd) ~= 1 then
+  vim.uv.chdir(vim.fn.stdpath("config"))
+end
 require("config.lazy")
 
 -- vim.g.neovide_fullscreen = true
